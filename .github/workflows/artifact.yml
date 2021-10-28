@@ -16,7 +16,8 @@ jobs:
     - name: Run a one-line script
       run: |
         mkdir dist
-        echo Hello, world! > dist/a
+        echo Hello! > dist/a
+        echo World! > dist/b
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
