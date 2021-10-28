@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run a one-line script
+      run: |
+        mkdir dist
+        echo Hello, world! > dist/a
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: hello
+        path: dist
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: hello
+    - name: List
+      run: ls
