@@ -22,7 +22,9 @@ jobs:
       with:
         name: hello
         path: dist
+
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
