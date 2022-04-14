@@ -16,5 +16,6 @@ jobs:
     - name: Run a one-line script
       run: |
         brew install opencv
-        python -VV
-        pip install opencv-contrib-python
+        python3 -VV
+        pip3 install opencv-contrib-python
+        python3 -c "import cv2"
