@@ -11,26 +11,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - name: Run a one-line script
       run: |
-        mkdir dist
-        echo Hello! > dist/a
-        echo World! > dist/b
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: hello
-        path: dist
-
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: hello
-    - name: List
-      run: ls
+        brew install opencv
+        python -VV
+        pip install opencv-contrib-python
