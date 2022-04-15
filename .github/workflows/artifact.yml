@@ -15,6 +15,7 @@ jobs:
     steps:
     - name: Run a one-line script
       run: |
+        brew list
         # brew install opencv
         python3 -VV
         pip3 install opencv-contrib-python
